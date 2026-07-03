@@ -9,10 +9,11 @@
 
 
 :root{
-    --cor_principal: rgb(253, 195, 2);
+    --cor_principal: rgb(6, 170, 6);
     --cor_botao01: rgb(4, 117, 4);
     --cor_lnkmenu: blue;
     --cor_vermelha: red;
+    --cor_suave: rgb(255, 181, 43);
 }
 
 #geral{
@@ -28,16 +29,23 @@
     width: 100%;
     height: 200px;
     background-color: var(--cor_principal);
-    padding: 5px;
+    padding: 1px;
     margin: 20px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+#logo{
+    width: 220px;
+    height: 175px;
+    overflow: hidden;
+}
+
 #logo-img{
-    width: 20px;
-    height: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 #menu{
@@ -106,5 +114,84 @@
     padding: 20px;
     border-radius: 8px;
     font-size: 2em;
+    background-color: var(--cor_lnk_menu);
 }
 
+/*FORMATAÇÃO DOS CARDS*/
+#cards{
+    width: 1000px;
+    min-height: 600px;
+    margin: 20px 0px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    cursor: pointer;
+}
+
+.card{
+    width: 250px;
+    min-height: 600px;
+    border: solid 5px var(--cor_principal);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card:hover{
+    transform: translateY(-5px);
+}
+
+.card h2{
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin: 10px 0px;
+}
+.card h3{
+    margin: 20px 0px;
+}
+
+.card button{
+    width: 100%;
+    height: 45px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    border: none;
+    background-color: var(--cor_suave)
+}
+
+.card img{
+    width: 100%;
+    min-height: 150px;
+}
+
+/*FORMATAÇÃO DO RODAPÉ*/
+#rodape{
+    width: 100%;
+    height: 300px;
+    background-color: var(--cor_suave);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#dadosloja{
+    font-size: 0.8em;
+}
+
+#icones-sociais ul{
+    list-style: none;
+}
+
+#icones-sociais img{
+    width: 25px;
+    height: 25px;
+    margin-left: 50px;
+}
+
+#div-cartoes img{
+    width: 25px;
+    height: 25px;
+}
