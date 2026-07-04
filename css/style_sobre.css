@@ -1,0 +1,10 @@
+h1{
+    text-align: center;
+}
+
+p{
+    text-justify: auto;
+    font-size: 25px;
+    background-color: rgb(6, 170, 6);
+    padding: 20px;
+}
