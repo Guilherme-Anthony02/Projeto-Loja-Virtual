@@ -1,10 +1,73 @@
-h1{
-    text-align: center;
+.sobre-secao {
+    background-color: #fcfcfcf8; 
+    padding: 60px 20px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #333;
 }
 
-p{
-    text-justify: auto;
-    font-size: 25px;
-    background-color: rgb(6, 170, 6);
-    padding: 20px;
+.sobre-container {
+    max-width: 900px;
+    margin: 0 auto;
 }
+
+.sobre-bloco h2 {
+    color: #1b6613; 
+    font-size: 32px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.sobre-bloco p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.sobre-valores {
+    display: flex;
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.valor-card {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 5px solid #1b6613;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+}
+
+.valor-card h3 {
+    color: #1b6613;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.valor-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    color: #555;
+}
+
+.manifesto {
+    background-color: #1b6613;
+    color: white; 
+    padding: 35px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.manifesto p {
+    color: white;
+    text-align: center;
+    margin: 0;
+    font-style: italic;
+    font-size: 19px;
+}
+
