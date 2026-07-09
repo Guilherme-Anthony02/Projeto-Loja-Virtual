@@ -31,7 +31,7 @@
     background-color: var(--cor_principal);
     display: flex;
     justify-content: space-between; 
-    align-items: center; /
+    align-items: center; 
 }
 
 #logo {
