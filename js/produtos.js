@@ -2,7 +2,7 @@ const produtos = [
   {
     id_produto: 1,
     descricao_produto: "Apito de Emergência",
-    caminho_da_imagem: "../img/produtos/apito.png",
+    caminho_da_imagem: "../imagens/apito.png",
     valor_unitario: 19.90,
     id_secao: 1,
     nome_secao: "Sinalização"
@@ -10,7 +10,7 @@ const produtos = [
   {
     id_produto: 2,
     descricao_produto: "Barra Energética",
-    caminho_da_imagem: "../img/produtos/barraca.png",
+    caminho_da_imagem: "../imagens/barraca.png",
     valor_unitario: 24.90,
     id_secao: 2,
     nome_secao: "Abrigo"
@@ -121,4 +121,5 @@ const produtos = [
   }
 ];
 
-export {produtos}
+export { produtos }
+

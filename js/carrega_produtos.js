@@ -37,3 +37,59 @@ const listarProdutos = ()=>{
 }
 
 listarProdutos()
+
+//FILTRANDO AS SEÇÕES COM A COLEÇÃO map
+const listarSecoes = () => {
+
+    //CRIANDO A COLEÇÃO MAP
+    const secoesFiltrada = new Map()
+  
+    //PERCORRENDO O  ARRAY PRODUTOS E FILTRANDO AS SEÇÕES
+    produtos.forEach((elem, i) => {
+      secoesFiltrada.set(elem.id_secao, elem)
+    })
+  
+    //CONVERTENDO O MAP EM ARRAY
+    const secoesMenu = Array.from(secoesFiltrada.values())
+  
+    //RETORNANDO  O ARRAY CONVERTIDO
+    return secoesMenu
+  
+  }
+  
+  //MONTANDO OS LINKS SEÇÕES
+  const montarSecoes = () => {
+    //PEGANDO O ELEMENTO DO DOM
+    const ulMenu = document.querySelector('#menu-secoes')
+
+    //LIMPANDO O ELEMENTO ulMenu
+    ulMenu.innerHTML = ''
+  
+    //PERCORRENDO O ARRAY DAS SEÇÕES FILTRADA
+    listarSecoes().forEach((elem, i) => {
+
+      //CRIANDO O ELEMENTO li  
+      const liSecao = document.createElement('li')
+        
+      //CRIANDO O ELEMENTO
+      const aSecao = document.createElement('a')
+      aSecao.setAttribute('href', '#')
+      aSecao.setAttribute('class', 'lnk-secao')
+      aSecao.innerHTML = elem.nome_secao
+  
+      aSecao.addEventListener('click', () => {
+        //PARA TESTE
+        console.log(elem.id_secao)
+  
+      })
+  
+      liSecao.appendChild(aSecao)
+  
+      ulMenu.appendChild(liSecao)
+    })
+  
+  }
+  
+  montarSecoes()
+  
+  
