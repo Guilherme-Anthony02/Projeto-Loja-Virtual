@@ -12,7 +12,7 @@
     --cor_principal: #1b6613;
     --cor_botao01: rgb(4, 117, 4);
     --cor_lnkmenu: white;
-    --cor_vermelha: yellow;
+    --cor_vermelha: green;
     --cor_suave: rgb(255, 181, 43);
 }
 
@@ -199,4 +199,31 @@
     height: 25px;
 }
 
+/*CONFIGURANDO O MENU SEÇÕES*/
+#nav-secoes{
+    width: 100%;
+    min-height: 80px;
+    margin: 20px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.lnk-secao:link, .lnk-secao:visited{
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.3em;
+    letter-spacing: 3px;
+    color: var(--cor_vermelha);
+}
+
+.lnk-secao:hover {
+    font-size: 1.5em;
+    color: var(--cor_vermelha);
+}
+
+.lnk-secao:active {
+    color: var(--cor_principal);
+}
 

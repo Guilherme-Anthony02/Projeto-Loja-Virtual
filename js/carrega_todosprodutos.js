@@ -1,5 +1,4 @@
-import { produtos } from "./produtos.js";
-
+import { todosPro } from "./produtos.js";
 
 const section_cards = document.querySelector('#cards')
 
