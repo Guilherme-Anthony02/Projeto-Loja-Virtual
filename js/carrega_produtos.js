@@ -24,16 +24,16 @@ const listarSecoes = () => {
     })
 
     //CONVERTENDO O MAP EM ARRAY
-const secoesMenu = Array.from(secoesFiltrada.values())
+    const secoesMenu = Array.from(secoesFiltrada.values())
 
-//ADICIONANDO A SEÇÃO TODOS
-secoesMenu.unshift({
-    id_secao: 'todos',
-    nome_secao: 'TODOS'
-})
+    //ADICIONANDO A SEÇÃO TODOS
+    secoesMenu.unshift({
+        id_secao: 'todos',
+        nome_secao: 'TODOS'
+    })
 
-//RETORNANDO O ARRAY CONVERTIDO
-return secoesMenu
+    //RETORNANDO O ARRAY CONVERTIDO
+    return secoesMenu
 }
 
 //MONTANDO OS LINKS SEÇÕES
@@ -79,6 +79,7 @@ const montarSecoes = () => {
 
 montarSecoes()
 
+
 //FILTRANDO PRODUTOS
 const produtosFiltrados = (idSecao) => {
     return produtos.filter(elem => elem.id_secao === idSecao)
@@ -115,7 +116,31 @@ const montandoCards = (objProdutos) => {
         divCard.appendChild(btnCard)
 
         section_cards.appendChild(divCard)
+
+
     })
 
 }
+
+// ==== PESQUISA ====
+
+const campoPesquisa = document.querySelector('#txtPesquisa')
+
+campoPesquisa.addEventListener('keyup', () => {
+
+    const textoDigitado = campoPesquisa.value.toLowerCase().trim()
+
+    if (textoDigitado === '') {
+        montandoCards(produtos)
+        return
+    }
+
+    const resultadoPesquisa = produtos.filter(produto =>
+        produto.descricao_produto
+            .toLowerCase()
+            .includes(textoDigitado)
+    )
+
+    montandoCards(resultadoPesquisa)
+})
 

@@ -103,7 +103,7 @@
 }
 
 /*FORMATANDO section PELO ID PESQUISA */
-#pesquisa{
+#area-pesquisa{
     width: 1000px;
     height: 180px;
     display: flex;
@@ -199,31 +199,52 @@
     height: 25px;
 }
 
-/*CONFIGURANDO O MENU SEÇÕES*/
+/* CONFIGURANDO O MENU SEÇÕES */
 #nav-secoes{
     width: 100%;
-    min-height: 80px;
-    margin: 20px 0px;
+    margin: 20px 0;
     display: flex;
-    align-items: center;
     justify-content: center;
+}
+
+#menu-secoes{
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.lnk-secao:link, .lnk-secao:visited{
-    text-transform: uppercase;
+#menu-secoes li{
+    list-style: none;
+}
+
+.lnk-secao{
+    display: block;
+    padding: 10px 20px;
+
+    background-color: #1b5e20;
+    color: white;
+
     text-decoration: none;
-    font-size: 1.3em;
-    letter-spacing: 3px;
-    color: var(--cor_vermelha);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    border-radius: 25px;
+    border: 2px solid #2e7d32;
 }
 
-.lnk-secao:hover {
-    font-size: 1.5em;
-    color: var(--cor_vermelha);
+.lnk-secao:hover{
+    background-color: #2e7d32;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
-.lnk-secao:active {
-    color: var(--cor_principal);
+.lnk-secao:active{
+    transform: scale(0.95);
 }
-
