@@ -1,4 +1,7 @@
+//IMPORTANDO O ARRAY DOS PRODUTOS
 import { produtos } from "./produtos.js";
+//IMPORTANDO  O ARROW FUNCTION addItem
+import { addItem } from "./carrinho.js";
 
 
 const section_cards = document.querySelector('#cards')
@@ -111,6 +114,9 @@ const montandoCards = (objProdutos) => {
         btnCard.innerHTML = 'Adicionar'
 
         btnCard.addEventListener('click',()=>{
+            //ADICIONANDO UM OBJETO NO CARRINHO
+            addItem(elem)
+            
             //REDIRECIONA PARA PÁGINA carrinho.html
             window.location.href = "/paginas/carrinho.html"
         })
