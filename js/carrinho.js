@@ -1,6 +1,5 @@
 //CRIANDO O ARRAY DE ITENS DO CARRINHO
-const 
-o = JSON.parse(localStorage.getItem('itensSessao')) || []
+const itensCarrinho = JSON.parse(localStorage.getItem('itensSessao')) || []
 
 //FUNÇÃO PARA ADICIONAR O ITEM NO ARRAY
 const addItem = (objItem) => {

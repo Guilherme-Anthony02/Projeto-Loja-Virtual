@@ -1,27 +1,36 @@
 //IMPORTANDO O ARRAY DOS PRODUTOS
 import { produtos } from "./produtos.js";
-//IMPORTANDO  O ARROW FUNCTION addItem
+//IMPORTANDO O A ARROW FUNCTION addItem
 import { addItem } from "./carrinho.js";
 
-
+//PEGANDO ELEMENTO DO DOM
 const section_cards = document.querySelector('#cards')
 
-const listarProdutos = () => {
-    section_cards.innerHTML = ''
+//CARREGA 
+const carregaProduto = (id_secao) => {
+    //AO CHAMAR A FUNÇÃO carregaProduto() DEVE PASSAR O PARÂMETRO. 0(ZERO) CHAMA A FUNÇÃO listarProdutos(), QUALQUER OUTRO VALOR CHAMA A FUNLÇAO produtosFiltrados(id_secao)
+    if (id_secao === 0) {
+        montandoCards(listarProdutos())
+    } else {
+        montandoCards(produtosFiltrados(id_secao))
+    }
+
+    //QUALQUER FUNÇÃO CHAMADA SEMPRE CHAMA A FUNÇÃO montarSecoes()
+    montarSecoes()
 }
 
-listarProdutos()
+//FUNÇÃO PARA CARREGAR OS PRODUTOS
+const listarProdutos = () => {
+    return produtos
+}
 
 //FILTRANDO AS SEÇÕES COM A COLEÇÃO map
 const listarSecoes = () => {
-
     //CRIANDO A COLEÇÃO MAP
     const secoesFiltrada = new Map()
 
-    //PERCORRENDO O  ARRAY PRODUTOS E FILTRANDO AS SEÇÕES
+    //PECORRENDO O ARRAY PRODUTOS E FILTRANDO AS SEÇÕES
     produtos.forEach((elem, i) => {
-        secoesFiltrada.set(elem.id_secao, elem)
-
         //CRIANDO A CHAVE E O VALOR DA COLEÇÃO MAP A PARTIR DO ID DA SEÇÃO DA LISTA DE PRODUTOS
         secoesFiltrada.set(elem.id_secao, elem)
     })
@@ -29,13 +38,7 @@ const listarSecoes = () => {
     //CONVERTENDO O MAP EM ARRAY
     const secoesMenu = Array.from(secoesFiltrada.values())
 
-    //ADICIONANDO A SEÇÃO TODOS
-    secoesMenu.unshift({
-        id_secao: 'todos',
-        nome_secao: 'TODOS'
-    })
-
-    //RETORNANDO O ARRAY CONVERTIDO
+    //RETORNADO O ARRAY CONVERTIDO
     return secoesMenu
 }
 
@@ -43,14 +46,33 @@ const listarSecoes = () => {
 const montarSecoes = () => {
     //PEGANDO O ELEMENTO DO DOM
     const ulMenu = document.querySelector('#menu-secoes')
-
     //LIMPANDO O ELEMENTO ulMenu
     ulMenu.innerHTML = ''
 
+    //CRIANDO O LINK TODO
+    //CRIANDO O ELEMENTO li
+    const liSecao = document.createElement('li')
+
+    //CRIANDO O ELEMENTO a
+    const aSecao = document.createElement('a')
+    aSecao.setAttribute('href', '#')
+    aSecao.setAttribute('class', 'lnk-secao')
+    aSecao.innerHTML = 'TODOS'
+    //CAPTURANDO O CLICK DOS LINKS
+    aSecao.addEventListener('click', () => {
+        //CHAMANDO A FUNÇÃO PRODUTOS FILTRADOS
+        carregaProduto(0)
+    })
+
+    //ADICIONANDO O ELEMENTO FILHO a NO ELEMENTO li
+    liSecao.appendChild(aSecao)
+
+    //ADICIONANDO O ELEMENTO FILHO li NO ELEMENTO DO DOM ul
+    ulMenu.appendChild(liSecao)
+
     //PERCORRENDO O ARRAY DAS SEÇÕES FILTRADA
     listarSecoes().forEach((elem, i) => {
-
-        //CRIANDO O ELEMENTO li  
+        //CRIANDO O ELEMENTO li
         const liSecao = document.createElement('li')
 
         //CRIANDO O ELEMENTO a
@@ -59,34 +81,39 @@ const montarSecoes = () => {
         aSecao.setAttribute('class', 'lnk-secao')
         aSecao.innerHTML = elem.nome_secao
 
-
         //CAPTURANDO O CLICK DOS LINKS
         aSecao.addEventListener('click', () => {
-
-            if (elem.id_secao === 'todos') {
-                montandoCards(produtos)
-            } else {
-                montandoCards(produtosFiltrados(elem.id_secao))
-            }
-
+            //CHAMANDO A FUNÇÃO PRODUTOS FILTRADOS
+            montandoCards(produtosFiltrados(elem.id_secao))
         })
 
         //ADICIONANDO O ELEMENTO FILHO a NO ELEMENTO li
         liSecao.appendChild(aSecao)
 
-        //ADICIONANDO O ELEMENTO FILHO li no ELEMENTO DO DOM ul
+        //ADICIONANDO O ELEMENTO FILHO li NO ELEMENTO DO DOM ul
         ulMenu.appendChild(liSecao)
     })
 
 }
 
-montarSecoes()
-
-
-//FILTRANDO PRODUTOS
+//FILTRANDO PRODUTOS 
 const produtosFiltrados = (idSecao) => {
     return produtos.filter(elem => elem.id_secao === idSecao)
 }
+
+//FILTRANDO PELO INPUT
+//PEGANDO O INPUT NO DOM
+const inputPesquisa = document.querySelector("#pesquisa")
+
+//CAPTURANDO O EVENTO input
+inputPesquisa.addEventListener('input', (evt) => {
+    //CAPTURANDO O TEXTO DO INPUT E O DEIXANDO-O EM MINÚSCULO NA VARIÁVEL txtInput
+    let txtInput = evt.target.value.toLowerCase()
+
+    //FILTRA OS DADOS MONTANDO OS CARDS PELO FILTER E INCLUDES
+    montandoCards(produtos.filter(elem => elem.descricao_produto.toLowerCase().includes(txtInput)))
+
+})
 
 //MONTANDO CARDS
 const montandoCards = (objProdutos) => {
@@ -106,18 +133,17 @@ const montandoCards = (objProdutos) => {
 
         const h3Valor = document.createElement('h3')
         h3Valor.setAttribute('class', 'valor_card')
-        h3Valor.innerHTML = `R$ ${parseFloat(elem.valor_unitario).toFixed(2).replace
-            ('.', '.')}`
+        h3Valor.innerHTML = `R$ ${parseFloat(elem.valor_unitario).toFixed(2).replace('.', ',')}`
 
         const btnCard = document.createElement('button')
         btnCard.setAttribute('class', 'btn_card')
         btnCard.innerHTML = 'Adicionar'
 
-        btnCard.addEventListener('click',()=>{
-            //ADICIONANDO UM OBJETO NO CARRINHO
+        btnCard.addEventListener('click', () => {
+            //ADICIONADO UM OBJETO NO CARRINHO
             addItem(elem)
             
-            //REDIRECIONA PARA PÁGINA carrinho.html
+            //REDIRECIONA PARA PARA PÁGINA carrinho.html
             window.location.href = "/paginas/carrinho.html"
         })
 
@@ -128,30 +154,7 @@ const montandoCards = (objProdutos) => {
 
         section_cards.appendChild(divCard)
 
-
     })
-
 }
 
-// ==== PESQUISA ====
-
-const campoPesquisa = document.querySelector('#txtPesquisa')
-
-campoPesquisa.addEventListener('keyup', () => {
-
-    const textoDigitado = campoPesquisa.value.toLowerCase().trim()
-
-    if (textoDigitado === '') {
-        montandoCards(produtos)
-        return
-    }
-
-    const resultadoPesquisa = produtos.filter(produto =>
-        produto.descricao_produto
-            .toLowerCase()
-            .includes(textoDigitado)
-    )
-
-    montandoCards(resultadoPesquisa)
-})
-
+carregaProduto(0)
