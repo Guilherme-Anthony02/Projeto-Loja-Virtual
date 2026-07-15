@@ -1,50 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Virtual</title>
 
-    <!--LINK PRA ADICIONAR O FAVICON-->
+    <!-- Favicon -->
     <link rel="shortcut icon" href="../imagens/icones/favicon.ico" type="image/x-icon">
 
-    <!--LINK PARA O ARQUIVO-->
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/style_estrutura_paginas.css">
     <link rel="stylesheet" href="../css/style_carrinho.css">
 
-
+    <!-- JS -->
+    <script type="module" src="../js/montaTelaCarrinho.js" defer></script>
 </head>
 
 <body>
+
     <main id="geral">
+
+        <!-- CABEÇALHO -->
         <header id="cabecalho">
+
             <div id="logo">
-                <a href="index.html">
-                    <img src="../imagens/icones/logo.png" alt="logo">
+                <a href="../index.html">
+                    <img src="../imagens/icones/logo.png" alt="Logo">
                 </a>
             </div>
 
             <nav id="menu">
                 <ul>
-                    <li><a href="/index.html" class="lnk_menu"> Home</a></li>
-                    <li><a href="../paginas/cadastro.html" class="lnk_menu"> Cadastro</a></li>
-                    <li><a href="../paginas/sobre.html" class="lnk_menu"> Sobre</a></li>
-
+                    <li><a href="../index.html" class="lnk_menu">Home</a></li>
+                    <li><a href="../paginas/cadastro.html" class="lnk_menu">Cadastro</a></li>
+                    <li><a href="../paginas/sobre.html" class="lnk_menu">Sobre</a></li>
                 </ul>
             </nav>
 
             <div id="div-icones">
                 <ul>
-                    <li><a href="../paginas/login.html" class="lnk_icone"><img src="../imagens/icones/login.png"></a>
+                    <li>
+                        <a href="../paginas/login.html" class="lnk_icone">
+                            <img src="../imagens/icones/login.png" alt="Login">
+                        </a>
                     </li>
-                    <li><a href="../paginas/carrinho.html" class="lnk_icone"><img src="../imagens/icones/carrinho.png"
-                                alt=""></a></li>
+
+                    <li>
+                        <a href="../paginas/carrinho.html" class="lnk_icone">
+                            <img src="../imagens/icones/carrinho.png" alt="Carrinho">
+                        </a>
+                    </li>
                 </ul>
             </div>
+
         </header>
 
-        <main class="carrinho">
+       
+        <section class="carrinho">
+
             <div class="container">
 
                 <h1>Seu Carrinho</h1>
@@ -54,29 +68,25 @@
                 <h2>Aproveite as ofertas e adicione ao seu carrinho!</h2>
 
                 <div class="carrinho-container">
-                    <div class="produtos-lista">
-                        <div class="produto-item">
-                           
-                            <div class="produto-info">
-                                <h3>Nome do Produto de Sobrevivência</h3>
-                                <p>R$ 120,00</p>
-                            </div>
-                            <div class="produto-qtd">
-                                <button>-</button>
-                                <span>1</span>
-                                <button>+</button>
-                            </div>
-                            <button class="btn-remover">Excluir</button>
-                        </div>
-                    </div>
+
+                    <!-- PRODUTOS DO CARRINHO -->
+                    <section id="itens-carrinho" class="produtos-lista">
+
+                       
+
+                    </section>
 
                     <div class="resumo-carrinho">
+
                         <h3>Resumo do Pedido</h3>
+
                         <hr>
+
                         <div class="resumo-linha">
                             <span>Subtotal:</span>
-                            <span>R$ 120,00</span>
+                            <span id="subtotal">R$ 0,00</span>
                         </div>
+
                         <div class="cep">
                             <p>Digite seu CEP para calcular o frete</p>
                             <input type="text" placeholder="CEP">
@@ -86,25 +96,33 @@
                             <span>Frete:</span>
                             <span>Grátis</span>
                         </div>
+
                         <hr>
+
                         <div class="resumo-linha total">
                             <span>Total:</span>
-                            <span>R$ 120,00</span>
+                            <span id="total">R$ 0,00</span>
                         </div>
-                        <button class="btn-finalizar">Finalizar Compra</button>
+
+                        <button class="btn-finalizar">
+                            Finalizar Compra
+                        </button>
+
                     </div>
+
                 </div>
 
-
             </div>
-        </main>
 
+        </section>
+
+        <!-- RODAPÉ -->
         <footer id="rodape">
+
             <div id="dadosloja">
                 <h2>Rua José do Prado Franco, 458</h2>
                 <h3>Centro, Aracaju - SE</h3>
-                <h4>CEP: 49010-39</h4>
-
+                <h4>CEP: 49010-390</h4>
             </div>
 
             <div id="div-cartoes">
@@ -112,7 +130,9 @@
                 <img src="../imagens/icones/visa.png" alt="Visa">
                 <img src="../imagens/icones/master_card.png" alt="Mastercard">
             </div>
+
         </footer>
+
     </main>
 
 </body>
