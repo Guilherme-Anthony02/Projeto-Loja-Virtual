@@ -105,3 +105,16 @@ h2 {
     background-color: #218838;
 }
 
+#itens-carrinho {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.img-remover{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    cursor: pointer;
+}
