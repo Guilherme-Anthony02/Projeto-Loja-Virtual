@@ -40,3 +40,9 @@ const removerItemCarrinho = (pos)=>{
 }
 
 montaTelaCarrinho() 
+
+//FUNÇÃO QUE PERCORRE A LISTA DOS PRODUTOS ADICIONADOS NO CARRINHO E MOSTRA O VALOR TOTAL
+listItens.forEach((precoTotal) => {
+
+
+})
