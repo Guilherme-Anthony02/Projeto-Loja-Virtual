@@ -1,32 +1,50 @@
+//localStorage.removeItem("itensSessao");
+//localStorage.clear()
+
 //CRIANDO O ARRAY DE ITENS DO CARRINHO
 const itensCarrinho = JSON.parse(localStorage.getItem('itensSessao')) || []
 
-//FUNÇÃO PARA ADICIONAR O ITEM NO ARRAY
-const addItem = (objItem) => {
-    itensCarrinho.push(objItem)
+//const itensCarrinho = JSON.parse(sessionStorage.getItem('itensSessao')) || []
 
-    localStorage.setItem('itensSessao', itensCarrinho)
+
+//FUNÇÃO PARA ADICIONAR O ITEM NO ARRAY E NÃO ADICIONAR ITENS REPETIDOS
+const addItem = (objItem) => {
+
+    let itemExistente = ''
+
+    itensCarrinho.forEach(item => {
+        if(item.id_produto === objItem.id_produto){
+            itemExistente = item
+        }
+    })
+
+    if(itemExistente){
+        itemExistente.quantidade++
+    }else{
+        objItem.quantidade = 1
+        itensCarrinho.push(objItem)
+    }
+
+    localStorage.setItem('itensSessao', JSON.stringify(itensCarrinho))
 }
 
 //LISTAR ITENS DO CARRINHO
 const listItens = () => {
-    const itensSelecionados = JSON.stringify(localStorage.getItem('itensSessao'))
+
+    const itensSelecionados = JSON.parse(localStorage.getItem('itensSessao')) || []
+
+    //const itensSelecionados = JSON.parse(sessionStorage.getItem('itensSessao')) || []
+
     return itensSelecionados
 }
 
-//MONTANDO A TELA CARRINHO
-const montaTelaCarrinho = () => {
-    //PEGANDO ELEMENTOS DO DOM
-    const sectionItensCarrinho = document.querySelector('#itens-carrinho')
+//REMOVER ELEMENTO
+const removeItem = (pos)=>{
+    itensCarrinho.splice(pos, 1)
 
-    listItens().forEach((elem, i) => {
-
-
-    const sectionItem = document.createElement('section')
-    sectionItem.setAttribute('class', 'item')
-    sectionItem.innerHTML = `<img src='${elem.caminho_da_imagem}' alt=${elem.descricao_produto}/> <p class=''descricao'>${elem.descricao_produto}</p> <p class='descricao'>${elem.descricao_produto}</p> <p class='vlr-unitario'>${elem.valor_unitario}</p> <input type="number" name='quant${i}' id='quant${i}' class="imput-item" value=${1}> <p class="tot-item">${elem.valor_unitario * 1}</p><img src="../imagens/icones/remover.png" alt="" class = "img-remover">`
-});
+    localStorage.setItem('itensSessao', JSON.stringify(itensCarrinho))
 
 }
 
-export { addItem }
+
+export { addItem, listItens, removeItem }
