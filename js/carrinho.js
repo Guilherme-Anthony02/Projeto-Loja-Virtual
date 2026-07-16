@@ -53,6 +53,20 @@ const listItens = () => {
     return itensSelecionados
 }
 
+//ATUALIZAR QUANTIDADE DO ITEM
+const atualizarQuantidade = (pos, novaQuantidade) => {
+    const quantidade = Number(novaQuantidade)
+
+    if (quantidade < 1) {
+        return false
+    }
+
+    itensCarrinho[pos].quantidade = quantidade
+    localStorage.setItem('itensSessao', JSON.stringify(itensCarrinho))
+
+    return true
+}
+
 //REMOVER ELEMENTO
 const removeItem = (pos)=>{
     itensCarrinho.splice(pos, 1)
@@ -62,4 +76,4 @@ const removeItem = (pos)=>{
 }
 
 
-export { addItem, listItens, removeItem }
+export { addItem, listItens, removeItem, atualizarQuantidade }
