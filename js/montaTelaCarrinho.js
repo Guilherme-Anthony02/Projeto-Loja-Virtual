@@ -5,12 +5,15 @@ const montaTelaCarrinho = () => {
     //PEGANDO ELEMENTOS DO DOM
     const sectionItensCarrinho = document.querySelector('#itens-carrinho')
 
+    const txtTotal = document.querySelector('#total')
+
     sectionItensCarrinho.innerHTML = ''
 
     listItens().forEach((elem, i) => {
         const sectionItem = document.createElement('section')
         sectionItem.setAttribute('class', 'item')
-        sectionItem.innerHTML = `<img src='${elem.caminho_da_imagem}' alt=${elem.descricao_produto}/> 
+        sectionItem.innerHTML = 
+        `<img src='${elem.caminho_da_imagem}' alt=${elem.descricao_produto}/> 
         <p class='descricao'>${elem.descricao_produto}</p> 
         <p class='vlr-unitario'>${elem.valor_unitario}</p> 
         <input type="number" name='quant${i}' id='quant${i}' class="input-item" value=${elem.quantidade}/> 
@@ -40,9 +43,3 @@ const removerItemCarrinho = (pos)=>{
 }
 
 montaTelaCarrinho() 
-
-//FUNÇÃO QUE PERCORRE A LISTA DOS PRODUTOS ADICIONADOS NO CARRINHO E MOSTRA O VALOR TOTAL
-listItens.forEach((precoTotal) => {
-
-
-})
