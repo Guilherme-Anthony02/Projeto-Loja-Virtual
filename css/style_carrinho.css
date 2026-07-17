@@ -28,9 +28,9 @@ h2 {
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    border: 1px solid #ddd;
+    border: 1px solid white;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: white;
 }
 
 .produto-item img {
@@ -50,8 +50,8 @@ h2 {
 .produto-qtd button {
     padding: 5px 10px;
     cursor: pointer;
-    border: 1px solid #ccc;
-    background: #eee;
+    border: 1px solid white;
+    background: white;
 }
 
 .produto-qtd span {

@@ -7,6 +7,7 @@ const formatarMoeda = (valor) => {
     })
 }
 
+
 const atualizarResumoCarrinho = () => {
     const itens = listItens()
     const txtSubtotal = document.querySelector('#subtotal')
@@ -22,7 +23,7 @@ const atualizarResumoCarrinho = () => {
 }
 
 //MONTANDO A TELA CARRINHO
-const montaTelaCarrinho = () => {
+const montaTelaCarrinho = () => { 
     //PEGANDO ELEMENTOS DO DOM
     const sectionItensCarrinho = document.querySelector('#itens-carrinho')
 
@@ -35,10 +36,12 @@ const montaTelaCarrinho = () => {
         `<img src='${elem.caminho_da_imagem}' alt=${elem.descricao_produto}/> 
         <p class='descricao'>${elem.descricao_produto}</p> 
         <p class='vlr-unitario'>${elem.valor_unitario}</p> 
-        <input type="number" min="1" name='quant${i}' id='quant${i}' class="input-item" value=${elem.quantidade}/> 
+        <input type="number" min="1" name='quant${i}' id='quant${i}' class="input-item" value=${elem.quantidade}> 
         <p class="tot-item">${formatarMoeda(elem.valor_unitario * elem.quantidade)}</p>`
 
+        //FUNÇÃO QUE SEMPRE IDENTIFICA ALTERAÇÃO NA QUANTIDADE (INPUT)
         const inputQuantidade = sectionItem.querySelector('.input-item')
+
         inputQuantidade.addEventListener('change', (evt) => {
             const novaQuantidade = Number(evt.target.value)
 

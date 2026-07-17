@@ -53,7 +53,7 @@ const listItens = () => {
     return itensSelecionados
 }
 
-//ATUALIZAR QUANTIDADE DO ITEM
+//FUNÇÃO PARA ATUALIZAR A QUANTIDADE DO ITEM E VALIDAR NÚMEROS
 const atualizarQuantidade = (pos, novaQuantidade) => {
     const quantidade = Number(novaQuantidade)
 
