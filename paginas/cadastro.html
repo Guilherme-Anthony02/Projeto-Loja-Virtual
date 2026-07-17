@@ -1,75 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja Virtual</title>
 
-    <!--LINK PRA ADICIONAR O FAVICON-->
-    <link rel="shortcut icon" href="imagens/icones/favicon.ico" type="image/x-icon">
+    <!-- Faz seu comentário -->
+    <!--LINK PARA ADICIONAR O FAVICON-->
+    <link rel="shortcut icon" href="../imagens/icones/favicon.ico" type="image/x-icon">
 
-    <!--LINK PARA O ARQUIVO-->
+    <!--LINK PARA O ARQUIVO -->
     <link rel="stylesheet" href="../css/style_estrutura_paginas.css">
     <link rel="stylesheet" href="../css/style_formulario.css">
+
+    <script src="../js/consulta_cep.js" defer></script>
 </head>
 
 <body>
     <main id="geral">
         <header id="cabecalho">
             <div id="logo">
-                <a href="index.html">
+                <a href="../index.html">
                     <img src="../imagens/icones/logo.png" alt="logo">
                 </a>
             </div>
 
             <nav id="menu">
                 <ul>
-                    <li><a href="/index.html" class="lnk_menu"> Home</a></li>
-                    <li><a href="../paginas/cadastro.html" class="lnk_menu"> Cadastro</a></li>
-                    <li><a href="../paginas/sobre.html" class="lnk_menu"> Sobre</a></li>
-
+                    <li><a href="../index.html" class="lnk_menu"> Home </a></li>
+                    <li><a href="../paginas/cadastro.html" class="lnk_menu"> Cadastro </a></li>
+                    <li><a href="../paginas/sobre.html" class="lnk_menu">Sobre</a></li>
                 </ul>
+                
             </nav>
 
             <div id="div-icones">
                 <ul>
-                    <li><a href="../paginas/login.html" class="lnk_icone"><img src="../imagens/icones/login.png"></a></li>
-                    <li><a href="../paginas/carrinho.html" class="lnk_icone"><img src="../imagens/icones/carrinho.png"
+                    <li><a href="login.html" class="lnk_icone"><img src="../imagens/icones/login.png" alt=""></a>
+                    </li>
+                    <li><a href="carrinho.html" class="lnk_icone"><img src="../imagens/icones/carrinho.png"
                                 alt=""></a></li>
                 </ul>
             </div>
         </header>
 
+        
         <section id="formulario">
             <h3>Cadastro</h3>
 
             <form id="form-pessoa">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" class="input01" required maxlenght="68"
-                    placeholder="Digite seu nome">
+                <input type="text" name="nome" id="nome" class="input01" required maxlength="60"
+                    placeholder="Digite Seu nome">
 
                 <label for="cpf">CPF</label>
-                <input type="text" name="cpf" id="cpf" class="input02" required maxlenght="14"
-                    placeholder="Digite seu CPF">
+                <input type="text" name="cpf" id="cpf" class="input02" required maxlength="14"
+                    placeholder="Digite Seu cpf">
 
-                <label for="data-nascimento">Nascimento</label>
-                <input type="text" name="nascimento" id="nascimento" class="input02" required
-                    placeholder="Digite sua data de nascimento">
+                <label for="data-nascimento">Data Nascimento</label>
+                <input type="date" name="data-nascimento" id="data-nascimento" class="input02" required>
+
+                <label for="sexo">Sexo</label>
+                <input type="radio" name="sexo" id="sexoM" class="inputOP" value="M"> Masculino
+                <input type="radio" name="sexo" id="sexoF" class="inputOP" value="F"> Feminino
+                <input type="radio" name="sexo" id="sexoN" class="inputOP" value="N"> Não Declarar
+
+                <label for="cep">CEP</label>
+                <input type="text" name="cep" id="cep" class="input02" required maxlength="9"
+                    placeholder="Digite Seu CEP">
 
                 <div id="div-dados-endereco" class="oculto">
                     <label for="logradouro">Logradouro</label>
                     <input type="text" name="logradouro" id="logradouro" class="input01">
 
                     <label for="num-residencia">Número</label>
-                    <input type="text" name="numero" id="numero" class="input01">
+                    <input type="text" name="num-residencia" id="num-residencia" class="input02" maxlength="10" placeholder="Digite o número da residencia" required>
 
-                    <label for="num-residencia">Número</label>
-                    <input type="text" name="logradouro" id="logradouro" class="input02" maxlength="10"
-                        placeholder="Digite o número da residência" required>
-
-                    <label for="complemento-end">complemento</label>
-                    <input type="text" name="complemento-end" id="complemento-end" class="input01">
+                    <label for="complemento-end">Complemento</label>
+                    <input type="text" name="complemento-end" id="complemento-end" class="input01" maxlength="100" placeholder="Digite o número da residencia" >
 
                     <label for="bairro">Bairro</label>
                     <input type="text" name="bairro" id="bairro" class="input01">
@@ -77,17 +86,15 @@
                     <label for="localidade">localidade</label>
                     <input type="text" name="localidade" id="localidade" class="input01">
 
-                    <label for="uf">uf</label>
+                    <label for="uf">UF</label>
                     <input type="text" name="uf" id="uf" class="input02">
-
                 </div>
 
-                <label for="senha"></label>
-                <input type="password" name="senha" id="senha" class="input02" required maxlenght="6"
-                    placeholder="Informe a senha">
-
+                <label for="senha"> Senha </label>
+                <input type="password" name="senha"  id="senha" class="input02" required maxlength="6" placeholder="Informe a senha">
+                
                 <div id="div-btns">
-                    <button type="submit" id="btn-add">Cadastrar</button>
+                    <button type="submit" id="btn-add"> Cadastrar </button>
                     <button type="reset" id="btn-limpar">Limpar</button>
                 </div>
 
@@ -96,16 +103,25 @@
 
         <footer id="rodape">
             <div id="dadosloja">
-                <h2>Rua Pedregulho Quente, 6731</h2>
+                <h2>Rua sei la das quantas, 1001 - Centro</h2>
                 <h1>Aracaju - Sergipe</h1>
             </div>
 
+            <div id="icones-sociais">
+                <ul>
+                    <li><a href="https://www.instagram.com/seu_usuario"><img src="../imagens/icones/instagram.png"
+                                alt=""></a></li>
+                    <li><a href="https://www.facebook.com/seu_usuario"><img src="../imagens/icones/x.png" alt=""></a></li>
+                </ul>
+            </div>
+
             <div id="div-cartoes">
-                <img src="imagens/icones/hipercard.png" alt="Hipercard">
-                <img src="imagens/icones/visa.png" alt="Visa">
-                <img src="imagens/icones/master_card.png" alt="Mastercard">
+                <img src="../imagens/icones/hipercard.png" alt="Hipercard">
+                <img src="../imagens/icones/visa.png" alt="Visa">
+                <img src="../imagens/icones/master_card.png" alt="Mastercard">
             </div>
         </footer>
+
     </main>
 
 </body>
